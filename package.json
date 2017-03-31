@@ -1,0 +1,33 @@
+{
+  "name": "expo-barcode-scan",
+  "version": "0.0.0",
+  "description": "Hello Expo!",
+  "author": "Joy Patel",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "build": "babel src/ -D",
+    "prepublish": "yarn run build",
+    "test": "node_modules/jest/bin/jest.js"
+  },
+  "jest" : {
+    "preset" : "jest-expo"
+  },
+  "dependencies": {
+    "@expo/ex-navigation": "^2.9.4",
+    "expo": "^15.0.2",
+    "firebase": "^3.7.4",
+    "react": "~15.4.0",
+    "react-native": "https://github.com/exponent/react-native/archive/sdk-15.0.0.tar.gz",
+    "react-native-simple-store": "^1.1.0",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.42.0",
+    "jest-expo": "^0.3.1"
+  }
+}
