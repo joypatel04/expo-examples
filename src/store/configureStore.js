@@ -1,16 +1,16 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './../reducers';
-import syncOffline from './../syncOffline/syncOffline';
-import { syncFirebase } from './../firebase/firebase';
+// import syncOffline from './../syncOffline/syncOffline';
+// import { syncFirebase } from './../firebase/firebase';
 
-export default function configureStore(initialState) {
+function configureStore(initialState) {
     const store = createStore(
         reducer,
         applyMiddleware(thunk)
     )
-    syncOffline(store)
-    syncFirebase(store)
+    // syncOffline(store)
+    // syncFirebase(store)
 
     if (module.hot) {
         module.hot.accept(() => {
@@ -21,3 +21,7 @@ export default function configureStore(initialState) {
 
     return store;
 }
+
+const store = configureStore({});
+
+export default store;
