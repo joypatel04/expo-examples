@@ -1,8 +1,9 @@
 import Expo from 'expo';
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
 
-class App extends React.Component {
+class Root extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -21,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-Expo.registerRootComponent(App);
+Expo.registerRootComponent(Root);
