@@ -6,7 +6,7 @@ import { FontAwesome } from '@expo/vector-icons'
 import { ActionCreators } from './../actions';
 import Store from './../store/configureStore';
 
-export default class CouneterExample extends Component {
+export default class Counter extends Component {
 
     constructor(props) {
         super(props);
@@ -60,7 +60,7 @@ export default class CouneterExample extends Component {
     }
 }
 
-CouneterExample.propTypes = {
+Counter.propTypes = {
     number: PropTypes.number.isRequired
 }
 

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, InteractionManager } from 'react-native';
 import Swiper from 'react-native-swiper'
 import { connect } from 'react-redux';
-import CounterExample from './../components/CounterExample';
+import Counter from './../components/Counter';
 import ToDo from './../components/ToDo';
 
 const window = Dimensions.get('window');
@@ -43,7 +43,7 @@ class Home extends Component {
         return (
             <Swiper style={[styles.swiperWrapper]} height={this.state.viewHeight} loop={false} paginationStyle={{bottom: 60}} bounces={true}>
                 <View onLayout={(event) => {this.setState({cardWidth: event.nativeEvent.layout.width})}} style={styles.slide1}>
-                    <CounterExample width={this.state.cardWidth} number={this.props.number} />
+                    <Counter width={this.state.cardWidth} number={this.props.number} />
                 </View>
                 <View style={styles.slide1}>
                     <ToDo width={this.state.cardWidth} toDos={{}} />
