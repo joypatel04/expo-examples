@@ -12,7 +12,12 @@ Demo Expo Examples App using TDD
 
 ## Run Test
 
-`yarn test or npm test`
+`yarn test or npm test` 
+
+## Coverage
+
+`yarn run test:coverage`
+
 
 ## Installation setup of Expo XDE 
 

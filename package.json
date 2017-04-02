@@ -9,7 +9,8 @@
     "build": "babel src/ -D",
     "prepublish": "yarn run build",
     "test": "node_modules/jest/bin/jest.js",
-    "test:watch": "yarn test -- --watch"
+    "test:watch": "yarn test -- --watch",
+    "test:coverage": "jest --coverage"
   },
   "jest": {
     "preset": "jest-expo",
