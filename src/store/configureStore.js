@@ -1,16 +1,24 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createNavigationEnabledStore, NavigationReducer } from '@expo/ex-navigation';
 import thunk from 'redux-thunk';
 import reducer from './../reducers';
-// import syncOffline from './../syncOffline/syncOffline';
-// import { syncFirebase } from './../firebase/firebase';
+import counter from './../reducers/counter';
+
 
 function configureStore(initialState) {
-    const store = createStore(
-        reducer,
+
+    const createStoreWithNavigation = createNavigationEnabledStore({
+        createStore,
+        navigationStateKey: 'navigation',
+    });
+
+    const store = createStoreWithNavigation(
+        combineReducers({
+            counter,
+            navigation: NavigationReducer,
+        }),
         applyMiddleware(thunk)
     )
-    // syncOffline(store)
-    // syncFirebase(store)
 
     if (module.hot) {
         module.hot.accept(() => {
@@ -22,6 +30,6 @@ function configureStore(initialState) {
     return store;
 }
 
-const store = configureStore({});
+const Store = configureStore({});
 
-export default store;
+export default Store;
