@@ -26,7 +26,7 @@ class Home extends Component {
             this.setState({
                 shouldRenderSwiper: true
             })
-        })  
+        });  
     }
 
     _mesureHeight(event) {
@@ -46,7 +46,7 @@ class Home extends Component {
                     <Counter width={this.state.cardWidth} number={this.props.number} />
                 </View>
                 <View style={styles.slide1}>
-                    <ToDo width={this.state.cardWidth} toDos={{}} />
+                    <ToDo width={this.state.cardWidth} toDos={this.props.toDos} />
                 </View>
                 <View style={styles.slide1}>
                     <Text style={styles.text}>And simple</Text>
@@ -70,7 +70,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    number: state.counter.number
+    number: state.counter.number,
+    toDos: state.toDos
 })
 
 const mapDispatchToProps = (dispatch) => ({

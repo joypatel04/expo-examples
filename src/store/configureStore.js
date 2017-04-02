@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createNavigationEnabledStore, NavigationReducer } from '@expo/ex-navigation';
 import thunk from 'redux-thunk';
-import reducer from './../reducers';
 import counter from './../reducers/counter';
+import toDos from './../reducers/todo';
 
 
 function configureStore(initialState) {
@@ -12,17 +12,20 @@ function configureStore(initialState) {
         navigationStateKey: 'navigation',
     });
 
+    const rootReducer = combineReducers({
+        counter,
+        toDos,
+        navigation: NavigationReducer,
+    });
+
     const store = createStoreWithNavigation(
-        combineReducers({
-            counter,
-            navigation: NavigationReducer,
-        }),
+        rootReducer,
         applyMiddleware(thunk)
     )
 
     if (module.hot) {
         module.hot.accept(() => {
-            const nextRootReducer = require('../reducers/index').default;
+            const nextRootReducer = rootReducer;
             store.replaceReducer(nextRootReducer);
         })
     }
