@@ -16,7 +16,7 @@ Demo Expo Examples App using TDD
 
 ## Coverage
 
-`yarn run test:coverage`
+`yarn run test:coverage || npm run test:coverage`
 
 
 ## Installation setup of Expo XDE 
@@ -35,7 +35,7 @@ XDE > Projets > Open Project
 
 XDE > Device > iOS Simulator
 
-![Run on Simulator](./READMEScreenShorts/simulator.png)
+![Run on Simulator](./READMEScreenShorts/deviceRun.png)
 
 ### Run App in Device
 
