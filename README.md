@@ -10,6 +10,10 @@ Demo Expo Examples App using TDD
 
 `yarn add or npm install`
 
+## Run Test
+
+`yarn test or npm test`
+
 ## Installation setup of Expo XDE 
 
 [Download Expo XDE for Mac/Windows](https://docs.expo.io/versions/v15.0.0/introduction/installation.html)
