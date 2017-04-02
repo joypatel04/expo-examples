@@ -35,12 +35,12 @@ XDE > Projets > Open Project
 
 XDE > Device > iOS Simulator
 
-![Run on Simulator](./READMEScreenShorts/deviceRun.png)
+![Run on Device](./READMEScreenShorts/simulator.png)
 
 ### Run App in Device
 
 XDE > Publish > Enter Phone number | Email
 
-![Run on Device](./READMEScreenShorts/simulator.png)
+![Run on Simulator](./READMEScreenShorts/deviceRun.png)
 
 ### Open Link in iPhone or Android
