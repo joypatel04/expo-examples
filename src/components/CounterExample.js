@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'
 import { ActionCreators } from './../actions';
 import Store from './../store/configureStore'
@@ -35,7 +35,7 @@ export default class CouneterExample extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView contentContainerStyle={styles.container} scrollEnabled={false}>
                 <View style={[styles.header]}>
                     <Text style={styles.headerTitle}>Redux Counter Example</Text>
                 </View>
@@ -55,7 +55,7 @@ export default class CouneterExample extends Component {
                 <TouchableOpacity style={[styles.header, {top: 50}]} onPress={this._resetNumber.bind(this)}>
                     <Text style={[styles.headerTitle, {fontSize : 20}]}>RESET</Text>
                 </TouchableOpacity>         
-            </View>
+            </ScrollView>
         );
     }
 }
