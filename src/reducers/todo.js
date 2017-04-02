@@ -1,7 +1,6 @@
 import * as types from './../actions/types'
 
 const initialState = {
-    VisibilityFilters: types.VisibilityFilters.SHOW_ALL,
     todos: []
 }
 
@@ -14,7 +13,7 @@ export default function toDos(state = initialState, action) {
                     {
                         text: action.text,
                         completed: false,
-                        id: Math.random()
+                        id: action.id
                     }
                 ]
             });

@@ -42,7 +42,7 @@ export default class ToDo extends Component {
     }
 
     _addTodo() {
-        Store.dispatch(ActionCreators.addToDo(this.state.toDoText));
+        Store.dispatch(ActionCreators.addToDo(this.state.toDoText, Math.random()));
         this.setState({
             toDoText: ''
         });

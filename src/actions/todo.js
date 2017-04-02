@@ -1,9 +1,10 @@
 import * as types from './types';
 
-export function addToDo(text) {
+export function addToDo(text, id) {
     return {
         type: types.ADD_TODO,
-        text: text
+        text: text,
+        id: id
     }
 }
 
