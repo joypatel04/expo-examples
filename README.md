@@ -1,2 +1,2 @@
-# expo-barcode-scan
-Demo Expo Barcode Scanner App using TDD
+# expo-examples
+Demo Expo Examples App using TDD
