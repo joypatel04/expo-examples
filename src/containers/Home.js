@@ -48,9 +48,6 @@ class Home extends Component {
                 <View style={styles.slide1}>
                     <ToDo width={this.state.cardWidth} toDos={this.props.toDos} />
                 </View>
-                <View style={styles.slide1}>
-                    <Text style={styles.text}>And simple</Text>
-                </View>
             </Swiper>   
         );
     }
@@ -59,7 +56,7 @@ class Home extends Component {
         return (
             <View style={styles.container}>
               <View style={styles.navigationArea}>
-                <Text style={styles.title}>Expo</Text>    
+                <Text style={styles.title}>Examples</Text>    
               </View>    
               <View onLayout={(event) => {this._mesureHeight(event)}} style={styles.contentArea}>
                   {this._renderSwiper()}
