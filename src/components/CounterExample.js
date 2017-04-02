@@ -4,9 +4,7 @@ import React, { PropTypes, Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'
 import { ActionCreators } from './../actions';
-import Store from './../store/configureStore'
-
-
+import Store from './../store/configureStore';
 
 export default class CouneterExample extends Component {
 
@@ -37,7 +35,7 @@ export default class CouneterExample extends Component {
 
     render() {
         return (
-            <ScrollView contentContainerStyle={styles.container} scrollEnabled={false}>
+            <ScrollView contentContainerStyle={[styles.container, { width: this.props.width}]} scrollEnabled={false}>
                 <View style={[styles.header]}>
                     <Text style={styles.headerTitle}>Redux Counter Example</Text>
                 </View>
@@ -69,7 +67,7 @@ CouneterExample.propTypes = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'flex-start',
   },

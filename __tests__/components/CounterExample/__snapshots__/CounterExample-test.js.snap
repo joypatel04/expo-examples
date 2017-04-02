@@ -3,12 +3,17 @@
 exports[`Render CounterExample Component Correctly 1`] = `
 <ScrollView
   contentContainerStyle={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "flex": 1,
-      "justifyContent": "flex-start",
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "flex": 1,
+        "justifyContent": "flex-start",
+      },
+      Object {
+        "width": undefined,
+      },
+    ]
   }
   scrollEnabled={false}
 >

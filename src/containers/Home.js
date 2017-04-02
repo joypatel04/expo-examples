@@ -3,8 +3,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, InteractionManager } from 'react-native';
 import Swiper from 'react-native-swiper'
-import CounterExample from './../components/CounterExample';
 import { connect } from 'react-redux';
+import CounterExample from './../components/CounterExample';
+import ToDo from './../components/ToDo';
 
 const window = Dimensions.get('window');
 
@@ -15,7 +16,8 @@ class Home extends Component {
 
         this.state = {
             viewHeight: 0,
-            shouldRenderSwiper: false
+            shouldRenderSwiper: false,
+            cardWidth: 0
         }
     }
 
@@ -40,11 +42,11 @@ class Home extends Component {
 
         return (
             <Swiper style={[styles.swiperWrapper]} height={this.state.viewHeight} loop={false} paginationStyle={{bottom: 60}} bounces={true}>
-                <View style={styles.slide1}>
-                    <CounterExample number={this.props.number} />
+                <View onLayout={(event) => {this.setState({cardWidth: event.nativeEvent.layout.width})}} style={styles.slide1}>
+                    <CounterExample width={this.state.cardWidth} number={this.props.number} />
                 </View>
                 <View style={styles.slide1}>
-                    <Text style={styles.text}>Beautiful</Text>
+                    <ToDo width={this.state.cardWidth} toDos={{}} />
                 </View>
                 <View style={styles.slide1}>
                     <Text style={styles.text}>And simple</Text>
@@ -109,7 +111,6 @@ const styles = StyleSheet.create({
     letterSpacing: 1
   },
   swiperWrapper: {
-      
   },
   slide1: {
     marginLeft: 20,
@@ -120,6 +121,6 @@ const styles = StyleSheet.create({
     borderColor: '#CFD8DC',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 400
+    height: 400,
   }
 });
