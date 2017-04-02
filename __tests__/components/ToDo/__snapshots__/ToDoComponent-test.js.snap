@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render CounterExample Component Correctly 1`] = `
+<ScrollView
+  contentContainerStyle={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "flex": 1,
+        "justifyContent": "flex-start",
+        "width": undefined,
+      },
+      Object {
+        "width": undefined,
+      },
+    ]
+  }
+  scrollEnabled={false}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "padding": 10,
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#455A64",
+          "fontFamily": "HelveticaNeue",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "letterSpacing": 0,
+        }
+      }
+    >
+      To-Do Example
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#CFD8DC",
+          "borderRadius": 10,
+          "borderWidth": 0.5,
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginRight": 2,
+        },
+      ]
+    }
+  >
+    <TextInput
+      autoCapitalize="words"
+      autoCorrect={false}
+      keyboardAppearance="dark"
+      maxLength={30}
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Add To-Do"
+      returnKeyType="done"
+      selectionColor="rgba(0,80,255,0.90)"
+      style={
+        Array [
+          Object {
+            "color": "#455A64",
+            "fontFamily": "HelveticaNeue",
+            "fontSize": 16,
+            "fontWeight": "500",
+            "height": 40,
+            "textAlign": "center",
+          },
+          Object {
+            "width": NaN,
+          },
+        ]
+      }
+      value=""
+    />
+  </View>
+  <ScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "marginRight": 2,
+          "width": NaN,
+        },
+      ]
+    }
+    dataSource={
+      ListViewDataSource {
+        "items": 0,
+      }
+    }
+    enableEmptySections={true}
+    initialListSize={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={1000}
+    onKeyboardDidHide={undefined}
+    onKeyboardDidShow={undefined}
+    onKeyboardWillHide={undefined}
+    onKeyboardWillShow={undefined}
+    onLayout={[Function]}
+    onScroll={[Function]}
+    pageSize={1}
+    removeClippedSubviews={true}
+    renderRow={[Function]}
+    scrollEventThrottle={50}
+    scrollRenderAheadDistance={1000}
+    stickyHeaderIndices={Array []}
+    stickySectionHeadersEnabled={true}
+  />
+</ScrollView>
+`;
