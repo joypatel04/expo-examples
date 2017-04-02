@@ -35,7 +35,7 @@ describe('Counter Actions', () => {
     })
 });
 
-describe('Couter Reducers', () => {
+describe('Couter Reducer', () => {
     it('should return the initial state', () => {
         expect(
             reducer(undefined, {})
