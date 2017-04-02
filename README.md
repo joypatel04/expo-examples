@@ -12,4 +12,6 @@ Installation setup of Expo XDE
 
 [Download Expo XDE for Mac/Windows](https://docs.expo.io/versions/v15.0.0/introduction/installation.html)
 
-[Download Expo Clint App for iPhone](https://itunes.apple.com/us/app/expo-client/id982107779?mt=8)
+[Download Expo Clint App for iPhone](https://itunes.apple.com/us/app/expo-client/id982107779?mt=8) / [Download Expo Clint App for Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en)
+
+
