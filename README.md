@@ -20,14 +20,20 @@ Demo Expo Examples App using TDD
 ## Run App from Expo XDE
 -----------------------
 
-![XDE > Projets > Open Project](./READMEScreenShorts/openProject.png)
+XDE > Projets > Open Project
+
+![Open Project](./READMEScreenShorts/openProject.png)
 
 ### Run App in Simulator
 
-![XDE > Device > iOS Simulator](./READMEScreenShorts/simulator.png)
+XDE > Device > iOS Simulator
+
+![Run on Simulator](./READMEScreenShorts/simulator.png)
 
 ### Run App in Device
 
-![XDE > Publish > Enter Phone number | Email](./READMEScreenShorts/simulator.png)
+XDE > Publish > Enter Phone number | Email
+
+![Run on Device](./READMEScreenShorts/simulator.png)
 
 ### Open Link in iPhone or Android
