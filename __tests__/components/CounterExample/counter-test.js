@@ -1,6 +1,6 @@
-import { ActionCreators } from './../src/actions';
-import * as types from './../src/actions/types';
-import reducer from './../src/reducers/counter';
+import { ActionCreators } from './../../../src/actions';
+import * as types from './../../../src/actions/types';
+import reducer from './../../../src/reducers/counter';
 
 describe('Counter Actions', () => {
     it('should add 1 to state of number', () => {

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@expo/ex-navigation": "^2.9.4",
+    "enzyme": "^2.8.0",
     "expo": "^15.0.2",
     "firebase": "^3.7.4",
     "react": "~15.4.0",
@@ -24,6 +25,7 @@
     "react-native-simple-store": "^1.1.0",
     "react-native-swiper": "^1.5.4",
     "react-redux": "^5.0.3",
+    "react-test-renderer": "^15.4.2",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"
   },
@@ -31,6 +33,7 @@
     "babel-cli": "^6.24.0",
     "babel-preset-flow": "^6.23.0",
     "flow-bin": "^0.42.0",
-    "jest-expo": "^0.3.1"
+    "jest-expo": "^0.3.1",
+    "jest-react-native": "^18.0.0"
   }
 }

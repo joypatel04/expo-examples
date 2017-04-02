@@ -1,10 +1,12 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'
 import { ActionCreators } from './../actions';
 import Store from './../store/configureStore'
+
+
 
 export default class CouneterExample extends Component {
 
@@ -58,6 +60,10 @@ export default class CouneterExample extends Component {
             </ScrollView>
         );
     }
+}
+
+CouneterExample.propTypes = {
+    number: PropTypes.number.isRequired
 }
 
 const styles = StyleSheet.create({
