@@ -12,7 +12,8 @@
     "test:watch": "yarn test -- --watch"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "verbose": true
   },
   "dependencies": {
     "@expo/ex-navigation": "^2.9.4",
