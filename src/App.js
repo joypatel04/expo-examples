@@ -27,11 +27,11 @@ class App extends Component {
                         defaultRouteConfig={{
                             navigationBar: {
                                 visible: false,
-                                translucent: true,
                                 backgroundColor: 'rgba(0,80,255,0.90)',
                                 elevation: 0,
                                 titleStyle: {
-                                    textAlign: 'center'
+                                    textAlign: 'center',
+                                    color: '#fff'
                                 }
                             }
                         }}

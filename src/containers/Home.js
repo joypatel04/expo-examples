@@ -3,13 +3,21 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, InteractionManager } from 'react-native';
 import Swiper from 'react-native-swiper'
+import Modal from 'react-native-simple-modal';
 import { connect } from 'react-redux';
 import Counter from './../components/Counter';
 import ToDo from './../components/ToDo';
+import BarCodeScanner from './../components/BarCodeScanner';
 
 const window = Dimensions.get('window');
 
 class Home extends Component {
+
+    static route = {
+        navigationBar: {
+            visible: false
+        }
+    }
 
     constructor(props) {
         super(props);
@@ -17,7 +25,8 @@ class Home extends Component {
         this.state = {
             viewHeight: 0,
             shouldRenderSwiper: false,
-            cardWidth: 0
+            cardWidth: 0,
+            modalOpen: false
         }
     }
 
@@ -48,6 +57,9 @@ class Home extends Component {
                 <View style={styles.slide1}>
                     <ToDo width={this.state.cardWidth} toDos={this.props.toDos} />
                 </View>
+                <View style={styles.slide1}>
+                    <BarCodeScanner width={this.state.cardWidth} onToggleModal={() => this.setState({modalOpen: true})} />
+                </View>
             </Swiper>   
         );
     }
@@ -61,6 +73,46 @@ class Home extends Component {
               <View onLayout={(event) => {this._mesureHeight(event)}} style={styles.contentArea}>
                   {this._renderSwiper()}
               </View>
+              <Modal
+                open={this.state.modalOpen}
+                offset={0}
+                overlayBackground={'rgba(0, 0, 0, 0.75)'}
+                animationDuration={200}
+                animationTension={40}
+                modalDidOpen={() => undefined}
+                modalDidClose={() => this.setState({modalOpen: false})}
+                closeOnTouchOutside={true}
+                containerStyle={{
+                    justifyContent: 'center'
+                }}
+                modalStyle={{
+                    borderRadius: 10,
+                    margin: 20,
+                    padding: 10,
+                    backgroundColor: 'white',
+                }}>
+                <View style={styles.modal}>
+                    <Text style={[styles.modalTitle,{color: 'red'}]}>Note: Please Add Product Data before Scan</Text>
+                    <Text style={[styles.modalDescription, {marginTop: 10}]}>
+                        Required Field to Add Data:
+                    </Text>
+                    <Text style={[styles.modalDescription, {marginTop: 10, marginLeft: 20}]}>
+                     Name:  String,
+                    </Text>
+                    <Text style={[styles.modalDescription, {marginTop: 10, marginLeft: 20}]}>
+                     Description:  String,
+                    </Text>
+                    <Text style={[styles.modalDescription, {marginTop: 10, marginLeft: 20}]}>
+                     Price:  String,
+                    </Text>
+                    <Text style={[styles.modalDescription, {marginTop: 10, marginLeft: 20}]}>
+                     Barcode: (Scan barcode from product)
+                    </Text>
+                    <Text style={[styles.modalDescription, {marginTop: 10, marginLeft: 20}]}>
+                     Image: (Take Image of product Using Camera),
+                    </Text>
+                </View>
+              </Modal>
             </View>
         );
     }
@@ -120,5 +172,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 400,
+  },
+  modal: {
+    padding: 5,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  modalTitle: {
+    color: '#455A64',
+    fontFamily: 'HelveticaNeue',
+    fontSize: 16,
+    fontWeight: '400',
+  },
+  modalDescription: {
+    color: '#455A64',
+    fontFamily: 'HelveticaNeue',
+    fontSize: 14,
+    fontWeight: '400',
   }
 });

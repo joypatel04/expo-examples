@@ -10,3 +10,7 @@ export const RESET_NUMBER = 'RESET_NUMBER';
 
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
+
+// Product
+
+export const ADD_PRODUCT = 'ADD_PRODUCT';

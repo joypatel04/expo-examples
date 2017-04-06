@@ -3,6 +3,7 @@ import { createNavigationEnabledStore, NavigationReducer } from '@expo/ex-naviga
 import thunk from 'redux-thunk';
 import counter from './../reducers/counter';
 import toDos from './../reducers/todo';
+import product from './../reducers/product';
 
 
 function configureStore(initialState) {
@@ -15,6 +16,7 @@ function configureStore(initialState) {
     const rootReducer = combineReducers({
         counter,
         toDos,
+        product,
         navigation: NavigationReducer,
     });
 
