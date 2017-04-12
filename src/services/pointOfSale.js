@@ -1,13 +1,42 @@
 'use strict';
 
+
+
+
+
+var text = '';
+
 const PointOfSale = {
-    onBarcode(barcode) {
-        return this.display()
+
+    Display() {
+        var text = this.getText()
+        return text;    
     },
 
-    display() {
-        return "$7.95";
+    Sale(barcode) {
+        return this.onBarcode(barcode);
+    },
+    
+    onBarcode(barcode) {
+        if (barcode === "12345") {
+            return this.setText("$7.95");
+        } else {
+            return this.setText("$12.50");
+        }
+        
+    },
+
+    setText(newValue) {
+        text = newValue
+        return text;
+    },
+
+    getText() {
+        return text
     }
 }
 
-export default PointOfSale;
+module.exports = PointOfSale;
+
+
+
