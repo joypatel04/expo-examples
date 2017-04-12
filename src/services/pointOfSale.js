@@ -20,10 +20,9 @@ const PointOfSale = {
     onBarcode(barcode) {
         if (barcode === "12345") {
             return this.setText("$7.95");
-        } else {
+        } else if (barcode === "23456") {
             return this.setText("$12.50");
         }
-        
     },
 
     setText(newValue) {
