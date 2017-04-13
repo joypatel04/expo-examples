@@ -29,7 +29,6 @@ const PointOfSale = {
 
     setText(newValue) {
         text = newValue
-        return text;
     },
 }
 
