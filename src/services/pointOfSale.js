@@ -15,11 +15,16 @@ const PointOfSale = {
     onBarcode(barcode, pricesByBarcode) {
         var item = {};
         if ('' === barcode) {
-            return this.setText('Scanning Error: Empty Barcode');
-        } else if (pricesByBarcode.has(barcode)) {
-            return this.setText(pricesByBarcode.get(barcode));
+            this.setText('Scanning Error: Empty Barcode');
+            return;
+        }
+
+        if (pricesByBarcode.has(barcode)) {
+            this.setText(pricesByBarcode.get(barcode));
+            return;
         } else {
-            return this.setText(`Product not found for ${barcode}`)
+            this.setText(`Product not found for ${barcode}`);
+            return;
         }
     },
 
