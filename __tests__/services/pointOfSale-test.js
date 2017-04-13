@@ -22,7 +22,7 @@ describe('PointOfSale Tests', () => {
     });
 
     it('Product Not Found', () => {
-        PointOfSale.Sale('', PricesByBarcode)
+        PointOfSale.Sale('', null)
         expect(PointOfSale.Display()).toEqual('Scanning Error: Empty Barcode');
     });
 });
