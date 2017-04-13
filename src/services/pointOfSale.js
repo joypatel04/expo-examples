@@ -5,7 +5,6 @@ var text = '';
 const PointOfSale = {
 
     Display() {
-        var text = this.getText()
         return text;    
     },
 
@@ -14,12 +13,15 @@ const PointOfSale = {
     },
     
     onBarcode(barcode) {
-        if (barcode === '12345') {
-            return this.setText('$7.95');
-        } else if (barcode === '23456') {
-            return this.setText('$12.50');
-        } else if (barcode === '') {
+        var item = {};
+        var PricesByBarcode = new Map();
+        PricesByBarcode.set('12345', '$7.95');
+        PricesByBarcode.set('23456', '$12.50');
+
+        if ('' === barcode) {
             return this.setText('Scanning Error: Empty Barcode');
+        } else if (PricesByBarcode.has(barcode)) {
+            return this.setText(PricesByBarcode.get(barcode));
         } else {
             return this.setText(`Product not found for ${barcode}`)
         }
@@ -29,10 +31,6 @@ const PointOfSale = {
         text = newValue
         return text;
     },
-
-    getText() {
-        return text
-    }
 }
 
 module.exports = PointOfSale;
