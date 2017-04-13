@@ -1,9 +1,6 @@
 'use strict';
 
 var text = '';
-var PricesByBarcode = new Map();
-PricesByBarcode.set('12345', '$7.95');
-PricesByBarcode.set('23456', '$12.50');
 
 const PointOfSale = {
 
@@ -11,18 +8,16 @@ const PointOfSale = {
         return text;    
     },
 
-    Sale(barcode) {
-        
-        return this.onBarcode(barcode);
+    Sale(barcode, pricesByBarcode) {
+        return this.onBarcode(barcode, pricesByBarcode);
     },
     
-    onBarcode(barcode) {
+    onBarcode(barcode, pricesByBarcode) {
         var item = {};
-
         if ('' === barcode) {
             return this.setText('Scanning Error: Empty Barcode');
-        } else if (PricesByBarcode.has(barcode)) {
-            return this.setText(PricesByBarcode.get(barcode));
+        } else if (pricesByBarcode.has(barcode)) {
+            return this.setText(pricesByBarcode.get(barcode));
         } else {
             return this.setText(`Product not found for ${barcode}`)
         }
