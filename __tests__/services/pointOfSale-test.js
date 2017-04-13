@@ -1,15 +1,23 @@
 import PointOfSale from './../../src/services/pointOfSale';
 
 describe('PointOfSale Tests', () => {
-    it('Sale One Item', () => {
-
-        
-        expect(PointOfSale.Sale("12345")).toEqual("$7.95")
-        expect(PointOfSale.Display()).toEqual('$7.95')
+    it('Product Found', () => {
+        PointOfSale.Sale('12345')
+        expect(PointOfSale.Display()).toEqual('$7.95');
     });
 
     it('Another Product Found', () => {
-        expect(PointOfSale.Sale("23456")).toEqual("$12.50")
-        expect(PointOfSale.Display()).toEqual("$12.50")
+        PointOfSale.Sale('23456')
+        expect(PointOfSale.Display()).toEqual('$12.50');
+    });
+
+    it('Product Not Found', () => {
+        PointOfSale.Sale('99999')
+        expect(PointOfSale.Display()).toEqual('Product not found for 99999');
+    });
+
+    it('Product Not Found', () => {
+        PointOfSale.Sale('')
+        expect(PointOfSale.Display()).toEqual('Scanning Error: Empty Barcode');
     });
 });

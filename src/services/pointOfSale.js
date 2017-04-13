@@ -1,9 +1,5 @@
 'use strict';
 
-
-
-
-
 var text = '';
 
 const PointOfSale = {
@@ -18,10 +14,14 @@ const PointOfSale = {
     },
     
     onBarcode(barcode) {
-        if (barcode === "12345") {
-            return this.setText("$7.95");
-        } else if (barcode === "23456") {
-            return this.setText("$12.50");
+        if (barcode === '12345') {
+            return this.setText('$7.95');
+        } else if (barcode === '23456') {
+            return this.setText('$12.50');
+        } else if (barcode === '') {
+            return this.setText('Scanning Error: Empty Barcode');
+        } else {
+            return this.setText(`Product not found for ${barcode}`)
         }
     },
 
