@@ -1,6 +1,7 @@
 'use strict';
 
 var text = '';
+var PricesByBarcode = new Map();
 
 const PointOfSale = {
 
@@ -9,14 +10,13 @@ const PointOfSale = {
     },
 
     Sale(barcode) {
+        PricesByBarcode.set('12345', '$7.95');
+        PricesByBarcode.set('23456', '$12.50');
         return this.onBarcode(barcode);
     },
     
     onBarcode(barcode) {
         var item = {};
-        var PricesByBarcode = new Map();
-        PricesByBarcode.set('12345', '$7.95');
-        PricesByBarcode.set('23456', '$12.50');
 
         if ('' === barcode) {
             return this.setText('Scanning Error: Empty Barcode');
