@@ -1,36 +1,62 @@
 'use strict';
 
-var text = '';
+var text = ''
+var PricesByBarcode = new Map();
+PricesByBarcode.set('12345', '$7.95');
+PricesByBarcode.set('23456', '$12.50');
 
-const PointOfSale = {
+class Display {
 
-    Display() {
-        return text;    
-    },
+    setText(value) {
+        text = value
+        return text;
+    }
 
-    Sale(barcode, pricesByBarcode) {
-        return this.onBarcode(barcode, pricesByBarcode);
-    },
+    getText() {
+        return text;
+    }
+
+    displayPrice(priceAsText) {
+        return this.setText(priceAsText)
+    }
+
+    displayEmptyBarcodeMessage(){
+        return this.setText('Scanning Error: Empty Barcode')
+    } 
     
-    onBarcode(barcode, pricesByBarcode) {
+    displayProductNotFoundMessage(barcode) {
+        return this.setText(`Product not found for ${barcode}`);
+    }
+}
+
+class Catalog {
+    findPrice(barcode) {
+        return PricesByBarcode.get(barcode)
+    }
+}
+   
+
+class PointOfSale {
+
+    Sale(barcode) {
+        return this.onBarcode(barcode);
+    }
+    
+    onBarcode(barcode) {
         var item = {};
+        
         if ('' === barcode) {
-            this.setText('Scanning Error: Empty Barcode');
-            return;
+            return Display.prototype.displayEmptyBarcodeMessage();
         }
 
-        if (pricesByBarcode.has(barcode)) {
-            this.setText(pricesByBarcode.get(barcode));
-            return;
+        var priceAsText = Catalog.prototype.findPrice(barcode)
+        if (priceAsText === null || priceAsText === undefined) {
+            return Display.prototype.displayProductNotFoundMessage(barcode);
         } else {
-            this.setText(`Product not found for ${barcode}`);
-            return;
+            return Display.prototype.displayPrice(priceAsText);
         }
-    },
+    }
 
-    setText(newValue) {
-        text = newValue
-    },
 }
 
 module.exports = PointOfSale;
