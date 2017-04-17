@@ -1,7 +1,6 @@
 import Sale from './../../src/services/sale';
 
 describe('SaleMultipleItem Tests', () => {
-    
   it('Zero Items', () => {
     expect(Sale.onTotal()).toEqual('No sale in progress. Try scanning a product');
     Sale.emptyPendingPurchaseItemPrices();
@@ -56,5 +55,5 @@ describe('SaleMultipleItem Tests', () => {
     Sale.onBarcode('9089')
     expect(Sale.onTotal()).toEqual('Total: $35.60');
     Sale.emptyPendingPurchaseItemPrices();
-  })
+  });
 });

@@ -1,7 +1,6 @@
 import Display from './../../src/services/display';
 
 describe('Format Monetary Amount Tests', () => {
-
   it(`Monetory Amount 889 formates to $8.89`, () => {
     expect(Display.formatMonetoryAmount(889)).toEqual('$8.89');
   });
