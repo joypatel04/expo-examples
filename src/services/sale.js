@@ -21,7 +21,7 @@ class Sale {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
       // scannedPricesInCents.push(this.parsePriceInCents(scannedPrice));
-      return Display.displayPrice(scannedPrice);
+      return Display.displayPrice(Catalog.formatMonetaryAmount(scannedPrice));
     }
   }
 
@@ -30,7 +30,7 @@ class Sale {
     if (!saleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
-      return Display.displayPurchaseTotal(scannedPrice);
+      return Display.displayPurchaseTotal(Catalog.formatMonetaryAmount(scannedPrice));
     }
   }
 
