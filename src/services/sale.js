@@ -31,9 +31,13 @@ class Sale {
     if (!saleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
-      var prices = pendingPurchaseItemPrices.values()
-      return Display.displayPurchaseTotal(Display.format(prices.next().value));
+      return Display.displayPurchaseTotal(this.pendingPurchaseTotal());
     }
+  }
+
+  pendingPurchaseTotal() {
+    var prices = pendingPurchaseItemPrices.values()
+    return prices.next().value;
   }
 
   parsePriceInCents(scannedPrice) {

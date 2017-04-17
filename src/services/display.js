@@ -32,7 +32,7 @@ class Display {
   }
 
   displayPurchaseTotal(priceInCents) {
-    return this.setText(`Total: ${priceInCents}`)
+    return this.setText(`Total: ${this.format(priceInCents)}`)
   }
 
   format(price) {
