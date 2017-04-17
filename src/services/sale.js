@@ -3,7 +3,7 @@
 import Catalog from './catalog';
 import Display from './display';
 
-var scannedPrice;
+var priceInCents;
    
 class Sale {
   
@@ -14,20 +14,23 @@ class Sale {
       return Display.displayEmptyBarcodeMessage();
     }
 
-    scannedPrice = Catalog.findPriceThenFotmatPrice(barcode)
+    priceInCents = Catalog.findPrice(barcode);
     
-    if (scannedPrice === null || scannedPrice === undefined) {
+    if (priceInCents === null || priceInCents === undefined) {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
+      var scannedPrice = Catalog.format(priceInCents)
       return Display.displayPrice(scannedPrice);
     }
+
   }
 
   onTotal() {
-    var saleInProgress = !(scannedPrice === null || scannedPrice === undefined);
+    var saleInProgress = !(priceInCents === null || priceInCents === undefined);
     if (!saleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
+      var scannedPrice = Catalog.format(priceInCents)
       return Display.displayPurchaseTotal(scannedPrice);
     }
   }

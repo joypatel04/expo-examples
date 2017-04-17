@@ -16,18 +16,9 @@ PricesInCentsByBarcode.set('23456', 1250);
 
 class Catalog {
 
-  findPriceThenFotmatPrice(barcode) {
+  findPrice(barcode) {
     var price = PricesInCentsByBarcode.get(barcode)
-    if (price === null || price === undefined) {
-      return price
-    } else {
-      return this.formatMonetaryAmount(price);
-    }
-  }
-
-  formatMonetaryAmount(price) {
-    var price = parseFloat(price/100).toFixed(2)
-    return `$${price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
+    return price
   }
 
   format(price) {
