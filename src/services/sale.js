@@ -23,7 +23,8 @@ class Sale {
   }
 
   onTotal() {
-    if (price === null || price === undefined) {
+    var saleInProgress = !(price === null || price === undefined);
+    if (!saleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
       return Display.displayPurchaseTotal(price)
