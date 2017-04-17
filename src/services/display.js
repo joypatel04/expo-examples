@@ -11,8 +11,12 @@ class Display {
     return text;
   }
 
-  displayText(priceAsText) {
-    return this.setText(priceAsText)
+  displayText(priceInCents) {
+    return this.setText(priceInCents)
+  }
+
+  displayPrice(priceInCents) {
+    return this.displayText(this.format(priceInCents));
   }
 
   displayEmptyBarcodeMessage(){
@@ -27,8 +31,8 @@ class Display {
     return this.setText('No sale in progress. Try scanning a product');
   }
 
-  displayPurchaseTotal(price) {
-    return this.setText(`Total: ${price}`)
+  displayPurchaseTotal(priceInCents) {
+    return this.setText(`Total: ${priceInCents}`)
   }
 
   format(price) {

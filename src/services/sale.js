@@ -4,6 +4,7 @@ import Catalog from './catalog';
 import Display from './display';
 
 var priceInCents;
+var scannedPrices = new Set();
    
 class Sale {
   
@@ -19,19 +20,19 @@ class Sale {
     if (priceInCents === null || priceInCents === undefined) {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
-      var scannedPrice = Display.format(priceInCents)
-      return Display.displayText(scannedPrice);
+      scannedPrices.add(priceInCents)
+      return Display.displayPrice(priceInCents);
     }
 
   }
 
   onTotal() {
-    var saleInProgress = !(priceInCents === null || priceInCents === undefined);
+    var saleInProgress = !(scannedPrices.size === 0);
     if (!saleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
-      var scannedPrice = Display.format(priceInCents)
-      return Display.displayPurchaseTotal(scannedPrice);
+      var prices = scannedPrices.values()
+      return Display.displayPurchaseTotal(Display.format(prices.next().value));
     }
   }
 

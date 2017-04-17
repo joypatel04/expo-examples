@@ -11,10 +11,16 @@ describe('SaleMultipleItem Tests', () => {
         expect(Sale.onTotal()).toEqual('Total: $7.95');
     });
 
+    // it('One Item Not Found', () => {
+    //     Sale.onBarcode('12345');
+    //     Sale.onBarcode('99999');
+    //     expect(Sale.onTotal()).toEqual('No sale in progress. Try scanning a product');
+    // })
+
     it('One Item Not Found', () => {
         Sale.onBarcode('12345');
         Sale.onBarcode('99999');
-        expect(Sale.onTotal()).toEqual('No sale in progress. Try scanning a product');
+        expect(Sale.onTotal()).toEqual('Total: $7.95');
     })
 
     // it('Several Items All Found', () => {
