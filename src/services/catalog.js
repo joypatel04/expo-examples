@@ -21,7 +21,7 @@ class Catalog {
 
   format(price) {
     var price = parseFloat(price/100).toFixed(2)
-    return `$${price}`;
+    return `$${price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
   }
 
   parsePriceInCents(scannedPrice) {
