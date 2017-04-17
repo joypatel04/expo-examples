@@ -16,10 +16,14 @@ var irrelevantPrice;
 
 class SaleController {
   onBarcode(barcode, price) {
-    if (price === null) {
-      return Display.prototype.displayProductNotFoundMessage();
+    if (barcode === '') {
+      return Display.prototype.displayEmptyBarcodeMessgae();
     } else {
-      return Display.prototype.displayPrice(Catalog.prototype.findPrice(barcode, price)); 
+      if (price === null) {
+        return Display.prototype.displayProductNotFoundMessage();
+      } else {
+        return Display.prototype.displayPrice(Catalog.prototype.findPrice(barcode, price)); 
+      }
     }
   }
 }
@@ -40,7 +44,11 @@ class Display {
   }
 
   displayProductNotFoundMessage() {
-    return "::product not found::"
+    return '::product not found::';
+  }
+  
+  displayEmptyBarcodeMessgae() {
+    return 'No Sell in Process';
   }
 }
 
@@ -53,5 +61,9 @@ describe('SaleOneItemController Tests', () => {
 
   it('Product Not Found', () => {
     expect(SaleController.prototype.onBarcode('::product not found::', null)).toEqual('::product not found::')
+  });
+
+  it('Empty Barcode', () => {
+    expect(SaleController.prototype.onBarcode('', null)).toEqual('No Sell in Process')
   });
 });
