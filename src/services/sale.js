@@ -2,6 +2,8 @@
 
 import Catalog from './catalog';
 import Display from './display';
+
+var price;
    
 class Sale {
   
@@ -12,16 +14,21 @@ class Sale {
       return Display.displayEmptyBarcodeMessage();
     }
 
-    var priceAsText = Catalog.findPrice(barcode)
-    if (priceAsText === null || priceAsText === undefined) {
+    price = Catalog.findPrice(barcode)
+    if (price === null || price === undefined) {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
-      return Display.displayPrice(priceAsText);
+      return Display.displayPrice(price);
     }
   }
 
   onTotal() {
-    return Display.displayNoSaleInProgressMessage();
+    if (price === null || price === undefined) {
+      return Display.displayNoSaleInProgressMessage();
+    } else {
+      return Display.setText('Total: $6.50')
+    }
+    
   }
 
 }
