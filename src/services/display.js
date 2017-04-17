@@ -16,7 +16,7 @@ class Display {
   }
 
   displayPrice(priceInCents) {
-    return this.displayText(this.format(priceInCents));
+    return this.displayText(this.formatMonetoryAmount(priceInCents));
   }
 
   displayEmptyBarcodeMessage(){
@@ -32,10 +32,10 @@ class Display {
   }
 
   displayPurchaseTotal(priceInCents) {
-    return this.setText(`Total: ${this.format(priceInCents)}`)
+    return this.setText(`Total: ${this.formatMonetoryAmount(priceInCents)}`)
   }
 
-  format(price) {
+  formatMonetoryAmount(price) {
     var price = parseFloat(price/100).toFixed(2)
     return `$${price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
   }
