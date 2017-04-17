@@ -4,7 +4,7 @@ import Catalog from './catalog';
 import Display from './display';
 
 var priceInCents;
-var scannedPrices = new Set();
+var pendingPurchaseItemPrices = new Set();
    
 class Sale {
   
@@ -20,18 +20,18 @@ class Sale {
     if (priceInCents === null || priceInCents === undefined) {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
-      scannedPrices.add(priceInCents)
+      pendingPurchaseItemPrices.add(priceInCents)
       return Display.displayPrice(priceInCents);
     }
 
   }
 
   onTotal() {
-    var saleInProgress = !(scannedPrices.size === 0);
+    var saleInProgress = !(pendingPurchaseItemPrices.size === 0);
     if (!saleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
-      var prices = scannedPrices.values()
+      var prices = pendingPurchaseItemPrices.values()
       return Display.displayPurchaseTotal(Display.format(prices.next().value));
     }
   }
