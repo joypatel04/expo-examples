@@ -26,7 +26,11 @@ class Display {
   displayNoSaleInProgressMessage() {
     return this.setText('No sale in progress. Try scanning a product');
   }
-  
+
+  displayPurchaseTotal(price) {
+    return this.setText(`Total: ${price}`)
+  }
+
 }
 
 module.exports = Display.prototype;

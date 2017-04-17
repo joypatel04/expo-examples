@@ -8,6 +8,6 @@ describe('PointOfSale SaleMultipleItem Tests', () => {
 
     it('One Item Found', () => {
         Sale.onBarcode('12345');
-        expect(Sale.onTotal()).toEqual('Total: $6.50');
+        expect(Sale.onTotal()).toEqual('Total: $7.95');
     });
 });

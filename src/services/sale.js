@@ -26,9 +26,8 @@ class Sale {
     if (price === null || price === undefined) {
       return Display.displayNoSaleInProgressMessage();
     } else {
-      return Display.setText('Total: $6.50')
+      return Display.displayPurchaseTotal(price)
     }
-    
   }
 
 }
