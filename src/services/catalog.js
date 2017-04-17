@@ -10,8 +10,18 @@ var PricesInCentsByBarcode = new Map();
 
 class Catalog {
 
-  findPrice(barcode) {
-    return PricesAsTextByBarcode.get(barcode)
+  findPriceThenFotmatPrice(barcode) {
+    var price = PricesAsTextByBarcode.get(barcode)
+    return this.formatMonetaryAmount(price)
+  }
+
+  formatMonetaryAmount(price) {
+    return price;
+  }
+
+  format(price) {
+    var price = parseFloat(price/100).toFixed(2)
+    return `$${price}`;
   }
 
   parsePriceInCents(scannedPrice) {

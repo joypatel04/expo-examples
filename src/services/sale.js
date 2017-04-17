@@ -15,13 +15,13 @@ class Sale {
       return Display.displayEmptyBarcodeMessage();
     }
 
-    scannedPrice = Catalog.findPrice(barcode)
+    scannedPrice = Catalog.findPriceThenFotmatPrice(barcode)
     
     if (scannedPrice === null || scannedPrice === undefined) {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
       // scannedPricesInCents.push(this.parsePriceInCents(scannedPrice));
-      return Display.displayPrice(this.formatMonetaryAmount(scannedPrice));
+      return Display.displayPrice(scannedPrice);
     }
   }
 
@@ -30,17 +30,13 @@ class Sale {
     if (!saleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
-      return Display.displayPurchaseTotal(this.formatMonetaryAmount(scannedPrice));
+      return Display.displayPurchaseTotal(scannedPrice);
     }
   }
 
   parsePriceInCents(scannedPrice) {
     var price = scannedPrice.replace(/[^\d.-]/g, '');
     return Number(price);
-  }
-
-  formatMonetaryAmount(price) {
-    return price;
   }
 
 }
