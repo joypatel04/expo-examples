@@ -21,7 +21,7 @@ class Sale {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
       pendingPurchaseItemPrices.push(priceInCents);
-      console.log(`Pending Array: ${pendingPurchaseItemPrices}`)
+      // console.log(`Pending Array: ${pendingPurchaseItemPrices}`)
       return Display.displayPrice(priceInCents);
     }
 
