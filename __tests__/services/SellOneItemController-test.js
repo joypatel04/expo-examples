@@ -65,6 +65,6 @@ describe('SaleOneItemController Tests', () => {
   });
 
   it('Empty Barcode', () => {
-    expect(SaleController.prototype.onBarcode('', null)).toEqual('No Sell in Process')
+    expect(SaleController.prototype.onBarcode('')).toEqual('No Sell in Process')
   });
 });
