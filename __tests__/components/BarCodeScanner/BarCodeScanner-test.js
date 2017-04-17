@@ -6,8 +6,8 @@ import BarCodeScanner from './../../../src/components/BarCodeScanner';
 import renderer from 'react-test-renderer';
 
 test('Render BarCodeScanner Component Correctly', () => {
-    const tree = renderer.create(
-        <BarCodeScanner width={100} onToggleModal={() => {}} />
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+  const tree = renderer.create(
+    <BarCodeScanner width={100} onToggleModal={() => {}} />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
 })

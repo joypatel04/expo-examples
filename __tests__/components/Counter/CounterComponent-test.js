@@ -6,8 +6,8 @@ import Counter from './../../../src/components/Counter';
 import renderer from 'react-test-renderer';
 
 test('Render CounterExample Component Correctly', () => {
-    const tree = renderer.create(
-        <Counter number={0} />
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+  const tree = renderer.create(
+    <Counter number={0} />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
 })
