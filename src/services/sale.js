@@ -5,10 +5,6 @@ import Display from './display';
    
 class Sale {
 
-    display() {
-        return Display.prototype.getText();
-    }
-
     saleItem(barcode) {
         return this.onBarcode(barcode);
     }
@@ -17,20 +13,20 @@ class Sale {
         var item = {};
         
         if ('' === barcode) {
-            return Display.prototype.displayEmptyBarcodeMessage();
+            return Display.displayEmptyBarcodeMessage();
         }
 
-        var priceAsText = Catalog.prototype.findPrice(barcode)
+        var priceAsText = Catalog.findPrice(barcode)
         if (priceAsText === null || priceAsText === undefined) {
-            return Display.prototype.displayProductNotFoundMessage(barcode);
+            return Display.displayProductNotFoundMessage(barcode);
         } else {
-            return Display.prototype.displayPrice(priceAsText);
+            return Display.displayPrice(priceAsText);
         }
     }
 
 }
 
-module.exports = Sale;
+module.exports = Sale.prototype;
 
 
 

@@ -8,4 +8,4 @@ class Catalog {
     }
 }
 
-module.exports = Catalog
+module.exports = Catalog.prototype;

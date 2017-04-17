@@ -24,4 +24,4 @@ class Display {
     }
 }
 
-module.exports = Display;
+module.exports = Display.prototype;
