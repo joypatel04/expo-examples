@@ -18,13 +18,14 @@ class SaleController {
   onBarcode(barcode, price) {
     if (barcode === '') {
       return Display.prototype.displayEmptyBarcodeMessgae();
+    } 
+    
+    if (price === null) {
+      return Display.prototype.displayProductNotFoundMessage();
     } else {
-      if (price === null) {
-        return Display.prototype.displayProductNotFoundMessage();
-      } else {
-        return Display.prototype.displayPrice(Catalog.prototype.findPrice(barcode, price)); 
-      }
+      return Display.prototype.displayPrice(Catalog.prototype.findPrice(barcode, price)); 
     }
+    
   }
 }
 
