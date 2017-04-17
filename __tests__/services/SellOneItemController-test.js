@@ -19,7 +19,7 @@ class SaleController {
     if (barcode === '') {
       return Display.prototype.displayEmptyBarcodeMessgae();
     } 
-    
+
     if (price === null) {
       return Display.prototype.displayProductNotFoundMessage();
     } else {
@@ -45,7 +45,7 @@ class Display {
   }
 
   displayProductNotFoundMessage() {
-    return '::product not found::';
+    return '::Product not found::';
   }
   
   displayEmptyBarcodeMessgae() {
@@ -57,11 +57,11 @@ class Display {
 
 describe('SaleOneItemController Tests', () => {
   it('Product Found', () => { 
-    expect(SaleController.prototype.onBarcode('12345', 795)).toEqual(795)
+    expect(SaleController.prototype.onBarcode('::Product found::', '::Product found::')).toEqual('::Product found::')
   });
 
   it('Product Not Found', () => {
-    expect(SaleController.prototype.onBarcode('::product not found::', null)).toEqual('::product not found::')
+    expect(SaleController.prototype.onBarcode('::Product not found::', null)).toEqual('::Product not found::')
   });
 
   it('Empty Barcode', () => {
