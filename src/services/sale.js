@@ -4,10 +4,6 @@ import Catalog from './catalog';
 import Display from './display';
    
 class Sale {
-
-  saleItem(barcode) {
-    return this.onBarcode(barcode);
-  }
   
   onBarcode(barcode) {
     var item = {};
