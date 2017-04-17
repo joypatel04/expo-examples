@@ -6,6 +6,10 @@
 
 * As a store manager, I want to be reminded that a product's price was not found, so that I can fix the price list to avoid this happening again. 
 
+## Design Issue
+
+* Introduce whole value for price.
+
 ## Performance
 
 * What happen when we scan 2000 products to sell to a single customer?

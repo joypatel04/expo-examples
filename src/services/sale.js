@@ -4,7 +4,7 @@ import Catalog from './catalog';
 import Display from './display';
 
 var priceInCents;
-var pendingPurchaseItemPrices = new Set();
+var pendingPurchaseItemPrices = [];
    
 class Sale {
   
@@ -20,14 +20,15 @@ class Sale {
     if (priceInCents === null || priceInCents === undefined) {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
-      pendingPurchaseItemPrices.add(priceInCents)
+      pendingPurchaseItemPrices.push(priceInCents);
+      console.log(`Pending Array: ${pendingPurchaseItemPrices}`)
       return Display.displayPrice(priceInCents);
     }
 
   }
 
   onTotal() {
-    var noSaleInProgress = pendingPurchaseItemPrices.size === 0;
+    var noSaleInProgress = pendingPurchaseItemPrices.length === 0;
     if (noSaleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
@@ -36,13 +37,24 @@ class Sale {
   }
 
   pendingPurchaseTotal() {
-    var prices = pendingPurchaseItemPrices.values()
-    return prices.next().value;
+    return this.computePurchaseTotal(pendingPurchaseItemPrices);
   }
 
+  computePurchaseTotal(pendingPurchaseItemPrices) {
+    return pendingPurchaseItemPrices.reduce(this.sum, 0)
+  }
+
+  sum(a, b) {
+      return a + b;
+  }
+  
   parsePriceInCents(scannedPrice) {
     var price = scannedPrice.replace(/[^\d.-]/g, '');
     return Number(price);
+  }
+
+  emptyPendingPurchaseItemPrices() {
+    pendingPurchaseItemPrices = [];
   }
 
 }
