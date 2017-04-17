@@ -53,6 +53,13 @@ class Display {
   }
 }
 
+module.exports = {
+  Price,
+  SaleController,
+  Display,
+  Catalog
+}
+
 
 
 describe('SaleOneItemController Tests', () => {
