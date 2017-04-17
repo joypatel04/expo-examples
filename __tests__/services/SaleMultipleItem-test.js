@@ -1,7 +1,7 @@
-import Display from './../../src/services/display';
+import Sale from './../../src/services/sale';
 
 describe('PointOfSale SaleMultipleItem Tests', () => {
     it('Zero Items', () => {
-        expect(Display.getText()).toEqual('No sale in progress. Try scanning a product');
+        expect(Sale.onTotal()).toEqual('No sale in progress. Try scanning a product');
     });
 });
