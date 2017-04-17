@@ -20,7 +20,7 @@ class Sale {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
       var scannedPrice = Display.format(priceInCents)
-      return Display.displayPrice(scannedPrice);
+      return Display.displayText(scannedPrice);
     }
 
   }

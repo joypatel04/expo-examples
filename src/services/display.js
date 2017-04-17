@@ -11,7 +11,7 @@ class Display {
     return text;
   }
 
-  displayPrice(priceAsText) {
+  displayText(priceAsText) {
     return this.setText(priceAsText)
   }
 
