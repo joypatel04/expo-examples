@@ -15,11 +15,11 @@ class Sale {
     }
 
     priceInCents = Catalog.findPrice(barcode);
-    
+
     if (priceInCents === null || priceInCents === undefined) {
       return Display.displayProductNotFoundMessage(barcode);
     } else {
-      var scannedPrice = Catalog.format(priceInCents)
+      var scannedPrice = Display.format(priceInCents)
       return Display.displayPrice(scannedPrice);
     }
 
@@ -30,7 +30,7 @@ class Sale {
     if (!saleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
-      var scannedPrice = Catalog.format(priceInCents)
+      var scannedPrice = Display.format(priceInCents)
       return Display.displayPurchaseTotal(scannedPrice);
     }
   }

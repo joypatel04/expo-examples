@@ -31,6 +31,11 @@ class Display {
     return this.setText(`Total: ${price}`)
   }
 
+  format(price) {
+    var price = parseFloat(price/100).toFixed(2)
+    return `$${price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
+  }
+
 }
 
 module.exports = Display.prototype;
