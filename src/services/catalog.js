@@ -7,6 +7,8 @@ PricesInCentsByBarcode.set('3', 330);
 PricesInCentsByBarcode.set('23456', 1250);
 PricesInCentsByBarcode.set('78', 1200);
 PricesInCentsByBarcode.set('23', 500);
+PricesInCentsByBarcode.set('7853', 3100);
+PricesInCentsByBarcode.set('9089', 460);
 
 class Catalog {
 
