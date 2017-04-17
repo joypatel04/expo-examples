@@ -12,30 +12,46 @@ class Price {
   }
 }
 
-var irrelevantPrice = Price.prototype.cents(795);
+var irrelevantPrice;
 
 class SaleController {
-  onBarcode(barcode) {
-    return Display.prototype.displayPrice(Catalog.prototype.findPrice(barcode)) 
+  onBarcode(barcode, price) {
+    if (price === null) {
+      return Display.prototype.displayProductNotFoundMessage();
+    } else {
+      return Display.prototype.displayPrice(Catalog.prototype.findPrice(barcode, price)); 
+    }
   }
 }
 
 class Catalog {
-  findPrice(barcode) {
-    return irrelevantPrice
+  findPrice(barcode, price) {
+    return irrelevantPrice = price
   }
 }
 
 class Display {
+  setPrice(text) {
+    return irrelevantPrice = Price.prototype.cents(text);
+  }
+
   displayPrice(centsValue) {
     return Price.prototype.cents(centsValue);
+  }
+
+  displayProductNotFoundMessage() {
+    return "::product not found::"
   }
 }
 
 
 
 describe('SaleOneItemController Tests', () => {
-  it('Product Found', () => {
-    expect(SaleController.prototype.onBarcode('12345')).toEqual(Display.prototype.displayPrice(irrelevantPrice))
+  it('Product Found', () => { 
+    expect(SaleController.prototype.onBarcode('12345', 795)).toEqual(795)
+  });
+
+  it('Product Not Found', () => {
+    expect(SaleController.prototype.onBarcode('::product not found::', null)).toEqual('::product not found::')
   });
 });
