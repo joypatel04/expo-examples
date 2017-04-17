@@ -27,8 +27,8 @@ class Sale {
   }
 
   onTotal() {
-    var saleInProgress = !(pendingPurchaseItemPrices.size === 0);
-    if (!saleInProgress) {
+    var noSaleInProgress = pendingPurchaseItemPrices.size === 0;
+    if (noSaleInProgress) {
       return Display.displayNoSaleInProgressMessage();
     } else {
       return Display.displayPurchaseTotal(this.pendingPurchaseTotal());
