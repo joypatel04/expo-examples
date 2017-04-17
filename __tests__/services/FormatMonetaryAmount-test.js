@@ -37,4 +37,8 @@ describe('Format Monetary Amount Tests', () => {
     it(`Monetory Amount 210832281 formates to $2,108,322.81`, () => {
       expect(Catalog.format(210832281)).toEqual('$2,108,322.81');
     });
+
+    it(`Monetory Amount 795 formates to $7.95`, () => {
+      expect(Catalog.format(795)).toEqual('$7.95');
+    });
 });

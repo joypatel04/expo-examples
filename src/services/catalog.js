@@ -7,12 +7,22 @@ PricesAsTextByBarcode.set('3', 330);
 PricesAsTextByBarcode.set('23456', 1250);
 
 var PricesInCentsByBarcode = new Map();
+PricesInCentsByBarcode.set('12345', 795);
+PricesInCentsByBarcode.set('23456', 1250);
+PricesInCentsByBarcode.set('1', 850);
+PricesInCentsByBarcode.set('2', 1275);
+PricesInCentsByBarcode.set('3', 330);
+PricesInCentsByBarcode.set('23456', 1250);
 
 class Catalog {
 
   findPriceThenFotmatPrice(barcode) {
-    var price = PricesAsTextByBarcode.get(barcode)
-    return price
+    var price = PricesInCentsByBarcode.get(barcode)
+    if (price === null || price === undefined) {
+      return price
+    } else {
+      return this.formatMonetaryAmount(price);
+    }
   }
 
   formatMonetaryAmount(price) {
